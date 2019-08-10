@@ -1033,8 +1033,12 @@
         cssReset['opacity'] = 1;
         css(img, cssReset);
 
-        imgData = self.elements.preview.getBoundingClientRect();
-
+        //imgData = self.elements.preview.getBoundingClientRect();
+	    imgData = {
+		    width: self.elements.preview.naturalWidth,
+		    height: self.elements.preview.naturalHeight
+	    };
+        
         self._originalImageWidth = imgData.width;
         self._originalImageHeight = imgData.height;
         self.data.orientation = _hasExif.call(self) ? getExifOrientation(self.elements.img) : self.data.orientation;
